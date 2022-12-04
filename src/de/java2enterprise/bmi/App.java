@@ -10,7 +10,8 @@ import de.java2enterprise.bmi.model.Lebewesen;
 public class App {
 	private Scanner scanner = new Scanner(System.in);
 	private Lebewesen lebewesen;
-	private String ergebnis;
+	private String[] ergebnisse = new String[BMIRechner.MAX_ANZAHL];
+	private int index = -1;
 	
 	public static void main(String[] args) {
 		new App();
@@ -20,7 +21,7 @@ public class App {
 		System.out.println("BMI [Programm Start]");
 		
 		boolean nochmal = true;
-		while(nochmal) {
+		while(nochmal && index < BMIRechner.MAX_ANZAHL) {
 			System.out.print("BMI [1=Eingabe 2=Verarbeiten 3=Ausgabe 4=Ende] >");
 			int auswahl = scanner.nextInt();
 			if(auswahl == 1) {
@@ -78,11 +79,17 @@ public class App {
 	
 	private void verarbeite() {
 		BMIRechner rechner = new BMIRechner();
-		ergebnis = rechner.pruefe(lebewesen);
+		ergebnisse[++index] = rechner.pruefe(lebewesen);
 	}
 	
 	private void gibAus() {
-		System.out.println("BMI [Ergebnis = " + ergebnis + "] ");
+		int i = -1;
+		for(String ergebnis : ergebnisse) {
+			if(++i > index) {
+				break;
+			}
+			System.out.println("BMI [Ergebnis = " + ergebnis + "] ");
+		}
 	}
 
 }
