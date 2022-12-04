@@ -17,9 +17,23 @@ public class App {
 	
 	private App() {
 		System.out.println("BMI [Programm Start]");
-		gibEin();
-		verarbeite();
-		gibAus();
+		
+		boolean nochmal = true;
+		while(nochmal) {
+			System.out.print("BMI [1=Eingabe 2=Verarbeiten 3=Ausgabe 4=Ende] >");
+			int auswahl = scanner.nextInt();
+			if(auswahl == 1) {
+				gibEin();
+			} else if(auswahl == 2) {
+				verarbeite();
+			} else if(auswahl == 3) {
+				gibAus();
+			} else if(auswahl == 4) {
+				nochmal = false;
+			} else {
+				System.out.println("BMI [Falsche Eingabe]");
+			}
+		}
 		scanner.close();
 		System.out.println("BMI [Programm Ende]");
 	}
