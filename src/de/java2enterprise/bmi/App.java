@@ -1,10 +1,13 @@
 package de.java2enterprise.bmi;
 
+import java.util.Scanner;
+
 import de.java2enterprise.bmi.controller.BMIRechner;
 import de.java2enterprise.bmi.model.Katze;
 import de.java2enterprise.bmi.model.Lebewesen;
 
 public class App {
+	private Scanner scanner = new Scanner(System.in);
 	private Lebewesen lebewesen;
 	private String ergebnis;
 	
@@ -17,14 +20,24 @@ public class App {
 		gibEin();
 		verarbeite();
 		gibAus();
+		scanner.close();
 		System.out.println("BMI [Programm Ende]");
 	}
 	
 	private void gibEin() {
 		lebewesen = new Katze();
-		lebewesen.setName("Pinki");
-		lebewesen.setGroesse(0.5);
-		lebewesen.setGewicht(6.1);
+		
+		System.out.print("BMI [Geben sie den Namen ein > ]");
+		String name = scanner.next();
+		lebewesen.setName(name);
+		
+		System.out.print("BMI [Geben sie die Größe [m] ein > ]");
+		double groesse = scanner.nextDouble();
+		lebewesen.setGroesse(groesse);
+		
+		System.out.print("BMI [Geben sie das Gewicht [kg] ein > ]");
+		double gewicht = scanner.nextDouble();
+		lebewesen.setGewicht(gewicht);
 	}
 	
 	private void verarbeite() {
@@ -33,7 +46,7 @@ public class App {
 	}
 	
 	private void gibAus() {
-		System.out.println("BMI [ergebnis = " + ergebnis + "] ");
+		System.out.println("BMI [Ergebnis = " + ergebnis + "] ");
 	}
 
 }
