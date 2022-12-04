@@ -3,6 +3,7 @@ package de.java2enterprise.bmi;
 import java.util.Scanner;
 
 import de.java2enterprise.bmi.controller.BMIRechner;
+import de.java2enterprise.bmi.model.Fisch;
 import de.java2enterprise.bmi.model.Katze;
 import de.java2enterprise.bmi.model.Lebewesen;
 
@@ -39,7 +40,28 @@ public class App {
 	}
 	
 	private void gibEin() {
-		lebewesen = new Katze();
+		while(true) {
+			System.out.println("BMI [1=Katze 2=Fisch] > ");
+			int lebewesenTyp = scanner.nextInt();
+			
+		
+			if(lebewesenTyp == 1) {
+				lebewesen = new Katze();
+				break;
+			} else if (lebewesenTyp == 2) {
+				lebewesen = new Fisch();
+				break;
+			} else {
+				System.out.println("BMI [Falsche Eingabe!]");
+			}
+		}
+		
+		if(lebewesen instanceof Katze) {
+			System.out.println("BMI [Katze]");
+		} else if(lebewesen instanceof Fisch) {
+			System.out.println("BMI [Fisch]");
+		}
+		
 		
 		System.out.print("BMI [Geben sie den Namen ein > ]");
 		String name = scanner.next();
