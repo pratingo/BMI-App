@@ -1,6 +1,8 @@
 package de.java2enterprise.bmi.model;
 
-public abstract class Lebewesen {
+import de.java2enterprise.bmi.controller.BMIKoerper;
+
+public abstract class Lebewesen implements BMIKoerper {
 
 	private String name;
 	private double gewicht;
