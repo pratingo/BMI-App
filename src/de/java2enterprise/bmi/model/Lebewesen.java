@@ -1,6 +1,6 @@
 package de.java2enterprise.bmi.model;
 
-public class Lebewesen {
+public abstract class Lebewesen {
 
 	private String name;
 	private double gewicht;
@@ -29,6 +29,10 @@ public class Lebewesen {
 	public void setGroesse(double groesse) {
 		this.groesse = groesse;
 	}
+	
+	public abstract void isst();
+	
+	public abstract void spielt();
 
 	public Lebewesen() {
 		super();

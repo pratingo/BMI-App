@@ -22,15 +22,19 @@ public class App {
 		
 		boolean nochmal = true;
 		while(nochmal && index < BMIRechner.MAX_ANZAHL) {
-			System.out.print("BMI [1=Eingabe 2=Verarbeiten 3=Ausgabe 4=Ende] >");
+			System.out.print("BMI [1=Eingabe 2=Essen 3=Spielen 4=Verarbeiten 5=Ausgabe 6=Ende] > ");
 			int auswahl = scanner.nextInt();
 			if(auswahl == 1) {
 				gibEin();
 			} else if(auswahl == 2) {
-				verarbeite();
+				lebewesen.isst();
 			} else if(auswahl == 3) {
-				gibAus();
+				lebewesen.spielt();	
 			} else if(auswahl == 4) {
+				verarbeite();
+			} else if(auswahl == 5) {
+				gibAus();
+			} else if(auswahl == 6) {
 				nochmal = false;
 			} else {
 				System.out.println("BMI [Falsche Eingabe]");
