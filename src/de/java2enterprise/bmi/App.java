@@ -2,6 +2,7 @@ package de.java2enterprise.bmi;
 
 import java.util.Scanner;
 
+import de.java2enterprise.bmi.controller.BMI;
 import de.java2enterprise.bmi.controller.BMIRechner;
 import de.java2enterprise.bmi.controller.BMIRechnerImpl;
 import de.java2enterprise.bmi.model.Fisch;
@@ -11,7 +12,7 @@ import de.java2enterprise.bmi.model.Lebewesen;
 public class App {
 	private Scanner scanner = new Scanner(System.in);
 	private Lebewesen lebewesen;
-	private String[] ergebnisse = new String[BMIRechnerImpl.MAX_ANZAHL];
+	private String[] ergebnisse = new String[BMI.MAX_ANZAHL];
 	private int index = -1;
 	
 	public static void main(String[] args) {
@@ -22,7 +23,7 @@ public class App {
 		System.out.println("BMI [Programm Start]");
 		
 		boolean nochmal = true;
-		while(nochmal && index < BMIRechnerImpl.MAX_ANZAHL) {
+		while(nochmal && index < BMI.MAX_ANZAHL) {
 			System.out.print("BMI [1=Eingabe 2=Essen 3=Spielen 4=Verarbeiten 5=Ausgabe 6=Ende] > ");
 			int auswahl = scanner.nextInt();
 			if(auswahl == 1) {
